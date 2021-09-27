@@ -1,0 +1,77 @@
+/* ======================================================================
+Nav Bar
+====================================================================== */
+nav #navbarSupportedContent .nav-item .nav-link{
+    color: #fff;
+  }
+
+  nav #navbarSupportedContent .nav-item .nav-link:hover{
+    border-bottom: 2px solid #f05746;
+  }
+
+  /* ======================================================================
+  Body
+  ====================================================================== */
+  .alert{
+      margin-top: 1.5%;
+  }
+
+
+  /* ======================================================================
+  Landing Page
+  ====================================================================== */
+
+  .body-img{
+    background-image: url("https://images.unsplash.com/photo-1526626607369-f89fe1ed77a9?ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8cGFya2luZyUyMGxvdHxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80");
+    height: 500px;
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+  }
+
+  #SearchForm input[type=text]{width:430px !important;}
+
+  /* ======================================================================
+  Login and Register Page
+  ====================================================================== */
+
+  .login{
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    padding-top: 40px;
+    padding-bottom: 15px;
+  }
+
+  .hr-login{
+    background-color: green;
+    height:3px;
+  }
+
+  .input-fa{
+    padding-right:5px;
+    padding-top:2px;
+  }
+  /* ======================================================================
+  Footer Page
+  ====================================================================== */
+  footer {
+    padding: 7% 15%;
+    background-color: #080707;
+    color: white;
+    width: 100%;
+  }
+
+  .footer-anchor {
+    margin: 20px 10px;
+    color: white;
+    text-align: center;
+  }
+
+  footer p {
+    padding-top: 10px;
+  }
+
+  .center{
+    text-align: center;
+  }

@@ -6,9 +6,16 @@ nav #navbarSupportedContent .nav-item .nav-link{
   }
 
   nav #navbarSupportedContent .nav-item .nav-link:hover{
-    border-bottom: 2px solid #f05746;
+    border-bottom: 2px solid #2676bf;
   }
-
+  .logo h2 {
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-weight: bold;
+    color: white;
+    background: -webkit-linear-gradient(#1454d9, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
   /* ======================================================================
   Body
   ====================================================================== */
@@ -30,34 +37,37 @@ nav #navbarSupportedContent .nav-item .nav-link{
   }
 
   #SearchForm input[type=text]{width:430px !important;}
-
+  .btn-xl {
+    padding: 10px 20px;
+    font-size: 28px;
+    border-radius: 10px;
+  }
   /* ======================================================================
   Login and Register Page
   ====================================================================== */
 
-  .login{
-    background-color: black;
-    border-radius: 15px;
-    color: white;
-    padding-top: 40px;
-    padding-bottom: 15px;
+  .logindiv{
+    height: 700px;
+    background-image: url("https://youthmentors.shinefromwithin.com.au/wp-content/uploads/2016/10/login-page-background-image-3-2.png");
+    background-repeat: no-repeat;
   }
 
-  .hr-login{
-    background-color: green;
-    height:3px;
+  /* ======================================================================
+  Add location Page
+  ====================================================================== */
+
+  .add-location-div{
+    height: 700px;
+    background-image: url("");
+    background-repeat: no-repeat;
   }
 
-  .input-fa{
-    padding-right:5px;
-    padding-top:2px;
-  }
   /* ======================================================================
   Footer Page
   ====================================================================== */
   footer {
     padding: 7% 15%;
-    background-color: #080707;
+    background-color: #173463;
     color: white;
     width: 100%;
   }

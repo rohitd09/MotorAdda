@@ -3,35 +3,36 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Binge Sort</title>
+    <link rel="shortcut icon" type="image/x-icon" href="data:image/png;base64,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" />
+    <title>MotorAdda</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="/stylesheets/style.css">
     <link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet">
   </head>
   <body class="body_bg" onresize="closeNav()">
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0a0a0a;">
-      <a class="navbar-brand" href="/">MotorAdda</a>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #0b3052;">
+      <span class="navbar-brand mb-0 logo mr-5"><a href="/"><h2><i class="fa fa-car blue-color " ></i> MotorAdda</h2></a></span>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav my-0 mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/"><i class="fa fa-home"></i> Home <span class="sr-only">(current)</span></a>
+          <li class="nav-item active mr-5">
+            <a class="nav-link" href="/"><strong><i class="fa fa-home"></i> Home </strong><span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/all_show"><i class="fa fa-television" title="Align Justify"></i> Service Locations</a>
+          <li class="nav-item mr-5">
+            <a class="nav-link" href="/all_show"><strong><i class="fa fa-map-marker" title="Align Justify"></i> Service Locations </strong></a>
           </li>
         </ul>
 
         <% if(!currentUser) { %>
           <div class="nav-item my-0 mr-1">
-            <a class="nav-link" href="/login"><i class="fa fa-sign-in fa-lg"></i> Login</a>
+            <a class="nav-link" href="/login"><strong><i class="fa fa-sign-in fa-lg"></i> Login</strong></a>
           </div>
           <div class="nav-item mr-0">
-            <a class="nav-link" href="/register"><i class="fa fa-user-plus fa-lg"></i> Sign Up</a>
+            <a class="nav-link" href="/register"><strong><i class="fa fa-user-plus fa-lg"></i> Sign Up</strong></a>
           </div>
         <% } else { %>
           <div class="nav-item my-0 mr-1">

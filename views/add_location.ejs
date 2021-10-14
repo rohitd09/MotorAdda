@@ -21,11 +21,25 @@
               </div>
               <div class="mb-3">
                 <label class="form-label">Opens at:</label>
-                <input type="text" class="form-control" name="opening_time" placeholder="Add time in 24hrs format. e.g. 13:15"  required>
+                <div class="row">
+                  <div class="col-5">
+                    <input type="number" class="form-control" name="opening_hr" placeholder="Add time in 24hrs format." min = "0" max = "23"  required>
+                  </div>:
+                  <div class="col-5">
+                    <input type="number" class="form-control" name="opening_min" placeholder="Add time in 24hrs format." min = "0" max = "59" required>
+                  </div>
+                </div>
               </div>
               <div class="mb-3">
                 <label class="form-label">Closes at:</label>
-                <input type="text" class="form-control" name="closing_time" placeholder="Add time in 24hrs format. e.g. 13:15"  required>
+                <div class="row">
+                  <div class="col-5">
+                    <input type="number" class="form-control" name="closing_hr" placeholder="Add time in 24hrs format." min = "0" max = "23" required>
+                  </div>:
+                  <div class="col-5">
+                    <input type="number" class="form-control" name="closing_min" placeholder="Add time in 24hrs format." min = "0" max = "59" required>
+                  </div>
+                </div>
               </div>
               <div class="mb-3">
                 <label class="form-label">Slots available:</label>

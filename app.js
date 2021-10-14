@@ -54,7 +54,7 @@ app.post("/search_location", (req, res) => {
 })
 
 app.get("/search_location/:location", (req, res) => {
-  ParkingLocation.find({parking_spot_location: req.params.location}, (err, locationFound) => {
+  ParkingLocation.find({parking_spot_location: new RegExp(req.params.location, "i")}, (err, locationFound) => {
     if(err){
       console.log(err);
       res.redirect("/")
@@ -66,14 +66,18 @@ app.get("/search_location/:location", (req, res) => {
 
 app.post("/decrease/:id/:spot", middleware.isLoggedIn, (req, res) => {
   spot = Number(req.params.spot) - 1
-  ParkingLocation.findOneAndUpdate({_id: req.params.id}, {$set: {number_of_available_spots: spot}}, (err, inc) => {
-    if(err){
-      res.redirect("/my_parkings")
-      req.flash("error", "Oops! There was an error")
-    } else {
-      res.redirect("/my_parkings")
-    }
-  })
+  if(spot < 0){
+    res.redirect("/my_parkings")
+  } else {
+    ParkingLocation.findOneAndUpdate({_id: req.params.id}, {$set: {number_of_available_spots: spot}}, (err, inc) => {
+      if(err){
+        res.redirect("/my_parkings")
+        req.flash("error", "Oops! There was an error")
+      } else {
+        res.redirect("/my_parkings")
+      }
+    })
+  }
 })
 
 

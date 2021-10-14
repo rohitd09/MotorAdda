@@ -64,8 +64,40 @@ app.get("/search_location/:location", (req, res) => {
   })
 })
 
+app.post("/decrease/:id/:spot", middleware.isLoggedIn, (req, res) => {
+  spot = Number(req.params.spot) - 1
+  ParkingLocation.findOneAndUpdate({_id: req.params.id}, {$set: {number_of_available_spots: spot}}, (err, inc) => {
+    if(err){
+      res.redirect("/my_parkings")
+      req.flash("error", "Oops! There was an error")
+    } else {
+      res.redirect("/my_parkings")
+    }
+  })
+})
+
+
+app.post("/increase/:id/:spot", middleware.isLoggedIn, (req, res) => {
+  spot = Number(req.params.spot) + 1
+  ParkingLocation.findOneAndUpdate({_id: req.params.id}, {$set: {number_of_available_spots: spot}}, (err, inc) => {
+    if(err){
+      res.redirect("/my_parkings")
+      req.flash("error", "Oops! There was an error")
+    } else {
+      res.redirect("/my_parkings")
+    }
+  })
+})
+
 app.get("/my_parkings", middleware.isLoggedIn, (req, res) =>{
-  res.render("my_parkings")
+  ParkingLocation.find({parking_spot_owner: req.user.username}, (err, locationFound) => {
+    if(err){
+      console.log(err);
+      res.redirect("/")
+    } else {
+      res.render("my_parkings", {locationFound: locationFound})
+    }
+  })
 })
 
 app.get("/add_location", middleware.isLoggedIn, (req, res) => {
@@ -73,7 +105,7 @@ app.get("/add_location", middleware.isLoggedIn, (req, res) => {
 })
 
 app.post("/add_location", middleware.isLoggedIn, (req, res) => {
-  var own_name      = req.body.owner_name
+  var own_email     = req.body.owner_email
   var park_location = req.body.parking_location
   var address       = req.body.address
   var open_hour     = req.body.opening_hr
@@ -81,11 +113,13 @@ app.post("/add_location", middleware.isLoggedIn, (req, res) => {
   var close_hour    = req.body.closing_hr
   var close_min     = req.body.closing_min
   var slots         = req.body.slots_available
+  var spot_name     = req.body.spot_name
 
   new_location = new ParkingLocation({
-    parking_spot_owner: own_name,
-    parking_spot_name: park_location,
-    parking_spot_location: address,
+    parking_spot_owner: own_email,
+    parking_spot_name: spot_name,
+    parking_spot_location: park_location,
+    parking_spot_address: address,
     number_of_available_spots: slots,
     open_time: {
       hour: open_hour,

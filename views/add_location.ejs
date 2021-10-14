@@ -8,8 +8,11 @@
               <h3>ADD LOCATION</h3>
               <form action="#" method="POST">
                 <div class="mb-3">
-                  <label class="form-label">Owner's Name:</label>
-                  <input type="text" class="form-control" name="owner_name" required>
+                  <input type="hidden" class="form-control" name="owner_email" value="<%= currentUser.username %>" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Parking Spot Name:</label>
+                  <input type="text" class="form-control" name="spot_name" required>
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Parking location:</label>

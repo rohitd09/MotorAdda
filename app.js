@@ -12,6 +12,8 @@ const express        = require("express")
       multer         = require("multer")
       app            = express();
 
+      middleware      = require("./middleware")
+
       User            = require("./models/user")
       ParkingLocation = require("./models/parking_location")
 
@@ -62,6 +64,52 @@ app.get("/search_location/:location", (req, res) => {
   })
 })
 
-app.listen(3000, ()=>{
+app.get("/my_parkings", middleware.isLoggedIn, (req, res) =>{
+  res.render("my_parkings")
+})
+
+app.get("/add_location", middleware.isLoggedIn, (req, res) => {
+  res.render("add_location")
+})
+
+app.post("/add_location", middleware.isLoggedIn, (req, res) => {
+  
+})
+
+app.get("/logout", function(req, res){
+  req.logout();
+  res.redirect("/");
+});
+
+app.get("/login", (req, res) => {
+  res.render("login")
+})
+
+app.post("/login", passport.authenticate("local", {
+  successRedirect: "/",
+  failureRedirect: "/login",
+  failureFlash: true
+}), function(req, res){}
+);
+
+app.get("/register", (req, res) => {
+  res.render("register")
+})
+
+app.post("/register", (req, res) => {
+  var newUser = new User({username: req.body.username});
+  User.register(newUser, req.body.password1, function(err, user){
+    if(err){
+      console.log(err);
+      req.flash("error", err.message);
+      return res.redirect("/register");
+    }
+  });
+
+  res.redirect("/login");
+});
+
+
+app.listen(3000, () => {
     console.log("Server Started at port 3000");
 })

@@ -3,9 +3,8 @@ const passportLocalMongoose = require("passport-local-mongoose");
 
 const UserSchema = new mongoose.Schema({
   username: String,
+  fullname: String,
   password: String,
-  resetPasswordToken: String,
-  resetPasswordExpires: Date
 });
 
 UserSchema.plugin(passportLocalMongoose)

@@ -1,0 +1,46 @@
+<%- include('./partials/header') %>
+
+    <div class="add-location-div pt-5">
+      <div class="row">
+        <div class="col-4 offset-sm-4">
+          <div class="card shadow-lg">
+            <div class="card-body">
+              <h3>ADD LOCATION</h3>
+              <form action="#" method="POST">
+                <div class="mb-3">
+                  <label class="form-label">Owner's Name:</label>
+                  <input type="text" class="form-control" name="owner_name" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Parking location:</label>
+                  <input type="text" class="form-control" name="parking_location" required>
+                </div>
+                <div class="mb-3">
+                <label class="form-label">Address:</label>
+                <textarea class="form-control"  name="address" required></textarea>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Opens at:</label>
+                <input type="text" class="form-control" name="opening_time" placeholder="Add time in 24hrs format. e.g. 13:15"  required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Closes at:</label>
+                <input type="text" class="form-control" name="closing_time" placeholder="Add time in 24hrs format. e.g. 13:15"  required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Slots available:</label>
+                <input type="number" min="1" class="form-control" name="slots_available"  required>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <button type="submit"  class="btn btn-success"><b>Add location</b></button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<%- include('./partials/footer') %>

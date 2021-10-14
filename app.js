@@ -73,7 +73,40 @@ app.get("/add_location", middleware.isLoggedIn, (req, res) => {
 })
 
 app.post("/add_location", middleware.isLoggedIn, (req, res) => {
-  
+  var own_name      = req.body.owner_name
+  var park_location = req.body.parking_location
+  var address       = req.body.address
+  var open_hour     = req.body.opening_hr
+  var open_min      = req.body.opening_min
+  var close_hour    = req.body.closing_hr
+  var close_min     = req.body.closing_min
+  var slots         = req.body.slots_available
+
+  new_location = new ParkingLocation({
+    parking_spot_owner: own_name,
+    parking_spot_name: park_location,
+    parking_spot_location: address,
+    number_of_available_spots: slots,
+    open_time: {
+      hour: open_hour,
+      minute: open_min
+    },
+    close_time: {
+      hour: close_hour,
+      minute: close_min
+    }
+  })
+
+  new_location.save((err, ParkingLocation) => {
+    if(err){
+      console.log(err);
+      res.redirect("/")
+      req.flash("error", "Oops! There was an error")
+    } else {
+      req.flash("success", "Data Inserted Successfully")
+      res.redirect("/my_parkings")
+    }
+  })
 })
 
 app.get("/logout", function(req, res){

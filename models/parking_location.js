@@ -8,8 +8,29 @@ const ParkingLocationSchema = new mongoose.Schema({
       type: Number,
       default: 0
   },
-  open_time: String,
-  close_time: String
-});
+  open_time: {
+    hour: {
+      type: Number,
+      min: 0,
+      max: 23
+    },
+    minute: {
+      type: Number,
+      min: 0,
+      max: 59
+    }
+  },
+  close_time: {
+    hour: {
+      type: Number,
+      min: 0,
+      max: 23
+    },
+    minute: {
+      type: Number,
+      min: 0,
+      max: 59
+    }
+}});
 
 module.exports = mongoose.model("ParkingLocation", ParkingLocationSchema)
